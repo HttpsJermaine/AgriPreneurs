@@ -1,0 +1,847 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Poppins",sans-serif;
+}
+
+body{
+  display:flex;
+  background:#f4f6f4;
+  min-height:100vh;
+}
+
+/* =========================
+   DESKTOP SIDEBAR
+=========================*/
+.sidebar{
+  width:260px;
+  background:#124131;
+  color:white;
+  height:100vh;
+  padding:25px 20px;
+  position:fixed;
+  left:0;
+  top:0;
+}
+
+.logo{
+  text-align:center;
+  margin-bottom:20px;
+  font-size:26px;
+  font-weight:600;
+}
+
+.farmer-info{
+  text-align:center;
+  margin-bottom:30px;
+}
+
+.avatar{
+  width:70px;
+  height:70px;
+  border-radius:50%;
+  border:3px solid #96d897;
+  object-fit:cover;
+}
+
+.farmer-name{
+  margin-top:10px;
+  font-size:16px;
+  font-weight:600;
+}
+
+.menu{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.menu-item{
+  padding:12px 15px;
+  background:transparent;
+  border-radius:8px;
+  color:white;
+  text-decoration:none;
+  font-size:15px;
+  transition:.2s;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.menu-item:hover{
+  background:#0d382a;
+}
+
+.menu-item.active{
+  background:#0b2f21;
+  border-left:4px solid #96d897;
+}
+
+.menu-item.logout{
+  margin-top:40px;
+  background:#9e2d2d;
+}
+
+.menu-item.logout:hover{
+  background:#7a1e1e;
+}
+
+/* =========================
+   CONTENT AREA
+=========================*/
+
+.content,
+.admin-container,
+.user-management-container{
+  margin-left:260px;
+  width:calc(100% - 260px);
+}
+
+/* =========================
+   MOBILE VIEW
+=========================*/
+
+@media (max-width:768px){
+
+  body{
+    display:block;
+  }
+
+  /* ===== Mobile Header ===== */
+
+  .sidebar{
+    position:sticky;
+    top:0;
+    width:100%;
+    height:auto;
+    padding:14px 14px 12px;
+    z-index:9999;
+    border-bottom-left-radius:16px;
+    border-bottom-right-radius:16px;
+  }
+
+  .logo{
+    margin-bottom:10px;
+    font-size:22px;
+  }
+
+  .farmer-info{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    margin-bottom:12px;
+  }
+
+  .avatar{
+    width:42px;
+    height:42px;
+  }
+
+  .farmer-name{
+    margin-top:0;
+    font-size:14px;
+  }
+
+  /* horizontal scroll menu */
+
+  .menu{
+    flex-direction:row;
+    flex-wrap:nowrap;
+    justify-content:flex-start;
+    gap:10px;
+    overflow-x:auto;
+    padding-bottom:6px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .menu-item{
+    white-space:nowrap;
+    padding:10px 12px;
+    border-left:0;
+    font-size:13px;
+  }
+
+  .menu-item.active{
+    border-left:0;
+    outline:2px solid rgba(150,216,151,.45);
+  }
+
+  .menu-item.logout{
+    margin-top:0;
+  }
+
+  /* ===== Content full width ===== */
+
+  .content,
+  .admin-container,
+  .user-management-container,
+  .main-content{
+    margin-left:0 !important;
+    width:100% !important;
+    padding:18px 14px !important;
+  }
+
+  /* =========================
+     ADMIN TABLE SCROLL (for registration.php)
+  =========================*/
+
+  .admin-panel,
+  .table-section{
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    margin: 0 -14px;
+    padding: 0 14px;
+    width: calc(100% + 28px);
+  }
+
+  .admin-table,
+  .user-table{
+    min-width:600px;
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+
+  .admin-table th {
+    background: #124131;
+    color: white;
+    font-size: 13px;
+    padding: 12px 10px;
+    white-space: nowrap;
+  }
+
+  .admin-table td {
+    padding: 12px 10px;
+    font-size: 13px;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 500;
+  }
+
+  .badge.pending {
+    background: #fef3c7;
+    color: #92400e;
+  }
+
+  .badge.active {
+    background: #d1fae5;
+    color: #065f46;
+  }
+
+  .view-btn, .disable-btn {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 12px;
+    cursor: pointer;
+    margin: 2px;
+    transition: .2s;
+  }
+
+  .view-btn {
+    background: #124131;
+    color: white;
+  }
+
+  .view-btn:hover {
+    background: #0d382a;
+  }
+
+  .disable-btn {
+    background: #9e2d2d;
+    color: white;
+  }
+
+  .disable-btn:hover {
+    background: #7a1e1e;
+  }
+
+  /* =========================
+     MODAL FIXES FOR registration.php
+  =========================*/
+
+  .modal {
+    align-items: center;
+    justify-content: center;
+    padding: 20px 12px;
+    overflow-y: auto;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 10000;
+  }
+  
+  .modal-content {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 500px;
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
+    background: white;
+    border-radius: 20px;
+    border: 2px solid #e5e7eb;
+    padding: 30px 20px 25px;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #f3f4f6;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4b5563;
+    z-index: 10;
+  }
+  
+  .close-btn:hover {
+    background: #e5e7eb;
+  }
+
+  .modal-role {
+    display: inline-block;
+    padding: 4px 12px;
+    background: #e5e7eb;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #4b5563;
+    margin-bottom: 15px;
+  }
+
+  .modal-avatar {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .modal-avatar img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #124131;
+    margin-bottom: 10px;
+  }
+
+  .modal-avatar h2 {
+    font-size: 20px;
+    color: #1f2937;
+    margin-bottom: 4px;
+  }
+
+  .details-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px 0;
+    background: #f9fafb;
+    padding: 16px;
+    border-radius: 12px;
+    margin: 15px 0;
+  }
+
+  .detail-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #4b5563;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 8px;
+  }
+
+  .detail-label:first-child {
+    margin-top: 0;
+  }
+
+  .detail-value {
+    font-size: 14px;
+    color: #1f2937;
+    padding-left: 0;
+    margin-bottom: 8px;
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 8px;
+  }
+
+  .detail-value:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .modal-actions {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 25px;
+  }
+
+  .modal-actions button {
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+    font-size: 16px;
+  }
+
+  .approve-btn, .reject-btn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: .2s;
+  }
+
+  .approve-btn {
+    background: #124131;
+    color: white;
+  }
+
+  .approve-btn:hover {
+    background: #0d382a;
+  }
+
+  .reject-btn {
+    background: #9e2d2d;
+    color: white;
+  }
+
+  .reject-btn:hover {
+    background: #7a1e1e;
+  }
+
+  /* =========================
+     ADD USER FORM
+  =========================*/
+
+  .add-user-grid{
+    grid-template-columns:1fr;
+  }
+
+  .add-user-btn{
+    width:100%;
+  }
+
+  /* =========================
+     DASHBOARD BOXES
+  =========================*/
+
+  .dashboard-boxes{
+    flex-direction:column;
+    gap:14px;
+  }
+
+  /* =========================
+     FARMERS LIST MOBILE FIX (farmers_list.php)
+  =========================*/
+
+  .page-header{
+    flex-direction:column;
+    align-items:stretch;
+    gap:12px;
+  }
+
+  .page-title{
+    font-size:22px;
+  }
+
+  .page-subtitle{
+    font-size:13px;
+  }
+
+  .search-bar{
+    width:100%;
+  }
+
+  .farmers-grid{
+    grid-template-columns:1fr;
+    gap:14px;
+  }
+
+  .farmer-card{
+    padding:16px;
+  }
+
+  .farmer-header{
+    align-items:flex-start;
+    gap:12px;
+  }
+
+  .farmer-avatar{
+    width:50px;
+    height:50px;
+    font-size:18px;
+  }
+
+  .farmer-avatar-img{
+    width:48px;
+    height:48px;
+  }
+
+  .farmer-info{
+    flex:1;
+    min-width:0;
+  }
+
+  .farmer-info h3{
+    font-size:16px;
+  }
+
+  .farmer-info p{
+    font-size:12px;
+    flex-wrap:wrap;
+    word-break:break-word;
+  }
+
+  .farmer-stats{
+    padding:10px;
+    gap:10px;
+  }
+
+  .stat-value{
+    font-size:16px;
+  }
+
+  .stat-label{
+    font-size:11px;
+  }
+
+  .view-products-btn{
+    font-size:13px;
+    padding:10px;
+  }
+
+  /* =========================
+     PRODUCTS SECTION - farmers_list.php
+  =========================*/
+
+  .products-section {
+    margin-top: 30px;
+    padding: 20px 0 40px;
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .section-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+
+  .section-title {
+    font-size: 20px;
+    justify-content: center;
+  }
+
+  .filter-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+  }
+
+  .filter-tab {
+    flex: 0 0 auto;
+    padding: 8px 16px;
+    font-size: 13px;
+    white-space: nowrap;
+    border: 1px solid #e5e7eb;
+    background: white;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+
+  .filter-tab.active {
+    background: #124131;
+    color: white;
+    border-color: #124131;
+  }
+
+  .filter-tab.pending {
+    border-color: #f59e0b;
+    color: #f59e0b;
+  }
+
+  .filter-tab.pending.active {
+    background: #f59e0b;
+    color: white;
+  }
+
+  .products-table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+
+  .products-table table {
+    min-width: 600px;
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+  }
+
+  .products-table th {
+    font-size: 13px;
+    padding: 14px 10px;
+    background: #f9fafb;
+    color: #4b5563;
+    font-weight: 600;
+  }
+
+  .products-table td {
+    font-size: 12px;
+    padding: 14px 10px;
+    border-bottom: 1px solid #e5e7eb;
+    vertical-align: top;
+  }
+
+  /* Action buttons in table */
+  .action-btn {
+    padding: 6px 10px;
+    font-size: 11px;
+    margin: 2px 0;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  .approve-btn {
+    background: #124131;
+    color: white;
+  }
+
+  .reject-btn {
+    background: #9e2d2d;
+    color: white;
+  }
+
+  /* Improved rejection reason display for mobile */
+  .products-table td .rejection-reason {
+    max-width: none;
+    font-size: 12px;
+    background: #fee2e2;
+    padding: 8px 10px;
+    border-radius: 8px;
+    border-left: 3px solid #9e2d2d;
+    white-space: normal;
+    word-break: break-word;
+    line-height: 1.4;
+  }
+
+  .products-table td .rejection-reason strong {
+    display: block;
+    margin-bottom: 4px;
+    color: #9e2d2d;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* Make the Actions/Reason column wider on mobile */
+  .products-table th:last-child,
+  .products-table td:last-child {
+    min-width: 180px;
+    max-width: 250px;
+  }
+
+  /* Status badges */
+  .status-badge {
+    font-size: 11px;
+    padding: 4px 8px;
+    border-radius: 20px;
+    display: inline-block;
+  }
+
+  .status-badge.pending {
+    background: #fef3c7;
+    color: #92400e;
+  }
+
+  .status-badge.active {
+    background: #d1fae5;
+    color: #065f46;
+  }
+
+  .status-badge.rejected {
+    background: #fee2e2;
+    color: #9e2d2d;
+  }
+
+  /* Rejection modal specific */
+  #rejectModal .modal-content {
+    padding: 25px 20px;
+  }
+
+  #rejectionReason {
+    min-height: 100px;
+    font-size: 14px;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    margin: 15px 0;
+    resize: vertical;
+  }
+
+  .confirm-reject, .cancel-modal {
+    width: 100%;
+    margin: 5px 0;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .confirm-reject {
+    background: #9e2d2d;
+    color: white;
+  }
+
+  .cancel-modal {
+    background: #e5e7eb;
+    color: #4b5563;
+  }
+
+  /* =========================
+     CARD VIEW FOR VERY SMALL SCREENS (<=600px)
+     This keeps the action buttons visible
+  =========================*/
+  @media (max-width: 600px) {
+    .products-table,
+    .products-table thead,
+    .products-table tbody,
+    .products-table tr,
+    .products-table td {
+      display: block;
+    }
+    
+    .products-table thead {
+      display: none; /* Hide headers */
+    }
+    
+    .products-table tr {
+      margin-bottom: 20px;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      overflow: hidden;
+      background: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    
+    .products-table td {
+      display: flex;
+      padding: 12px 15px;
+      border-bottom: 1px solid #f0f0f0;
+      text-align: left;
+      align-items: flex-start;
+    }
+    
+    .products-table td:last-child {
+      border-bottom: none;
+    }
+    
+    .products-table td:before {
+      content: attr(data-label);
+      font-weight: 600;
+      width: 100px;
+      min-width: 100px;
+      color: #4b5563;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    /* Adjust rejection reason for card layout */
+    .products-table td .rejection-reason {
+      flex: 1;
+      margin: 0;
+    }
+    
+    /* Adjust action buttons for card layout - KEEP THEM VISIBLE */
+    .products-table td .action-btn {
+      width: auto;
+      min-width: 100px;
+      margin: 0 5px 0 0;
+      display: inline-block;
+    }
+    
+    .products-table td:last-child:before {
+      align-self: flex-start;
+    }
+    
+    /* Extra small devices adjustments */
+    @media (max-width: 480px) {
+      .products-table td .rejection-reason {
+        font-size: 13px;
+        padding: 10px 12px;
+      }
+      
+      .products-table td .rejection-reason strong {
+        font-size: 12px;
+        margin-bottom: 6px;
+      }
+      
+      /* Stack the action buttons on very small screens */
+      .products-table td .action-btn {
+        display: block;
+        width: 100%;
+        margin: 4px 0;
+      }
+    }
+  }
+}
+
+/* Extra small devices - global adjustments */
+@media (max-width: 480px) {
+  .products-section {
+    margin-top: 20px;
+    padding: 15px 0 30px;
+  }
+
+  .section-title {
+    font-size: 18px;
+  }
+
+  .filter-tab {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+  .modal-content {
+    padding: 25px 15px;
+  }
+}

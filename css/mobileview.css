@@ -1,0 +1,107 @@
+@media (max-width: 768px) {
+    body { overflow-x: hidden; }
+  
+    /*INDEX */
+    .hero {
+      height: auto !important;
+      min-height: 320px;
+      padding: 22px 14px !important;  
+      justify-content: center;
+      background-position: center;
+    }
+  
+    .hero h2 {
+      font-size: 28px !important;
+      max-width: 100% !important;
+    }
+  
+    .hero-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 18px;
+    }
+  
+    .hero-buttons a { width: 100%; }
+  
+    .hero-buttons button {
+      width: 100%;
+      margin-right: 0 !important;
+    }
+  
+    .products-section {
+      padding: 18px 14px !important;
+    }
+
+    .product-grid {
+      grid-template-columns: 1fr !important;
+      gap: 14px !important;
+    }
+  
+    .product-img { height: 160px; }
+  
+    .about {
+      padding: 30px 14px !important;
+    }
+  
+    .about h2 {
+      margin-left: 0 !important;
+      font-size: 24px !important;
+      margin-bottom: 20px !important;
+    }
+  
+    .about-container {
+      justify-content: center !important;
+      gap: 20px !important;
+    }
+  
+    .about-info {
+      width: 100% !important;
+      max-width: 320px;
+    }
+  
+    .about-info img {
+      width: 140px !important;
+    }
+    /* REGISTER */
+    @media (max-width: 768px) {
+
+        .register-bg{
+          padding: 18px 12px !important;
+          width: 100%;
+        }
+      
+        .register-card{
+          width: min(94vw, 460px) !important;
+          max-width: 94vw !important;
+          padding: 20px 16px !important;
+          border-radius: 18px !important;
+          margin-right: 25px;
+        }
+      
+        .two-col{
+          grid-template-columns: 1fr !important;
+          gap: 12px !important;
+        }
+      
+        .input-field{
+          width: 93% !important;
+          min-width: 0 !important;
+
+        }
+      
+        .full-width{
+          grid-column: auto !important;
+        }
+      
+        h2{ font-size: 22px; }
+      }
+      
+      @media (max-width: 420px){
+        .register-card{
+          width: 96vw !important;
+          padding: 18px 14px !important;
+        }
+      }
+    }      
+  

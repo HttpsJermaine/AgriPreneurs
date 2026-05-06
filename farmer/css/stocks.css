@@ -1,0 +1,387 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: #ffffff;
+    color: #1a1a1a;
+}
+.sidebar {
+    width: 260px;
+    background: #124131;
+    color: white;
+    height: 100vh;
+    padding: 25px 20px;
+    position: fixed;
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 26px;
+    font-weight: 600;
+}
+
+.farmer-info {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 3px solid #96d897;
+}
+
+.farmer-name {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.menu-item {
+    padding: 12px 15px;
+    background: transparent;
+    border-radius: 8px;
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    transition: 0.2s;
+}
+
+.menu-item:hover {
+    background: #0d382a;
+}
+
+.active {
+    background: #0b2f21;
+    border-left: 4px solid #96d897;
+}
+
+.logout {
+    margin-top: 40px;
+    background: #9e2d2d;
+}
+
+.logout:hover {
+    background: #7a1e1e;
+}
+.stocks-container {
+    margin-left: 260px; /* sidebar fix */
+    padding: 30px 40px;
+}
+
+.page-title {
+    font-size: 28px;
+    color: #124131;
+    margin-bottom: 20px;
+}
+
+/* INFLOWS HEADER */
+.inflows-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.inflows-header h2 {
+    font-size: 22px;
+    color: #124131;
+}
+
+.add-stock-btn {
+    padding: 10px 18px;
+    background: #1ea54c;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.add-stock-btn:hover {
+    background: #189c44;
+}
+
+/* CARD LAYOUT */
+.stock-cards {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.stock-card {
+    width: 280px;
+    background: white;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.stock-image img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.stock-info {
+    margin-top: 12px;
+}
+
+.stock-info h3 {
+    font-size: 18px;
+    color: #124131;
+}
+
+.price {
+    color: #444;
+    margin-top: 5px;
+}
+
+.stocks span {
+    color: #1ea54c;
+    font-weight: 600;
+}
+.stock-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 4px 0 10px 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #124131;
+}
+
+.stock-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background: #e3f4eb;
+    color: #124131;
+    transition: background 0.2s;
+}
+
+.stock-btn:hover {
+    background: #c8e7d7;
+}
+
+.stock-btn.minus {
+    background: #ffe5e5;
+    color: #d93636;
+}
+
+.stock-btn.minus:hover {
+    background: #ffcccc;
+}
+
+.stock-btn.plus {
+    background: #e3f4eb;
+}
+
+.stock-btn.plus:hover {
+    background: #c8e7d7;
+}
+
+.stock-count {
+    min-width: 30px;
+    text-align: center;
+    display: inline-block;
+}
+
+/* ACTION BUTTONS */
+.stock-actions {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.stock-actions button {
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+}
+.checkbox-row{
+    display: flex;
+    gap: 18px;
+    margin: 8px 0 4px;
+  }
+  
+  .checkbox-item{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+  }
+  
+.edit-btn {
+    background: #e9f5ee;
+    color: #124131;
+}
+
+.delete-btn {
+    background: #fddede;
+    color: #c53030;
+}
+
+.sell-btn {
+    background: #d5f3ff;
+    color: #0077b6;
+}
+/* Small modal box */
+.small-modal {
+    width: 350px;
+}
+
+/* Background blur */
+#minusReasonModal {
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Same modal style as add stock modal */
+.modal-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.45);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+}
+
+.modal-box {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    width: 400px;
+}
+
+.modal-box h3 {
+    margin-bottom: 15px;
+    font-size: 22px;
+    color: #124131;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.modal-bg {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modal-box {
+    background: #fff;
+    padding: 25px;
+    width: 420px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.modal-box h2 {
+    font-size: 24px;
+    color: #124131;
+    margin-bottom: 15px;
+}
+
+.field {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.cancel-btn {
+    padding: 8px 16px;
+    border: 1px solid #555;
+    border-radius: 6px;
+    background: #fff;
+    cursor: pointer;
+}
+
+.save-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    background: #124131;
+    color: white;
+    cursor: pointer;
+}
+
+
+/* OUTFLOWS TABLE */
+.outflows-title {
+    margin-top: 45px;
+    font-size: 22px;
+    color: #124131;
+    margin-bottom: 12px;
+}
+
+.outflow-table {
+    width: 100%;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    border-collapse: collapse;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+}
+
+.outflow-table th {
+    background: #e9f5ee;
+    padding: 14px;
+    text-align: left;
+    color: #124131;
+    font-size: 15px;
+}
+
+.outflow-table td {
+    padding: 14px;
+    font-size: 14px;
+    border-bottom: 1px solid #eee;
+}
+
+.outflow-table tr:last-child td {
+    border-bottom: none;
+}

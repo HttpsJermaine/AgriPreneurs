@@ -1,0 +1,211 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+body {
+    display: flex;
+    background: #f4f6f4;
+}
+.sidebar {
+    width: 260px;
+    background: #124131;
+    color: white;
+    height: 100vh;
+    padding: 25px 20px;
+    position: fixed;
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 26px;
+    font-weight: 600;
+}
+
+.farmer-info {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 3px solid #96d897;
+}
+
+.farmer-name {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.menu-item {
+    padding: 12px 15px;
+    background: transparent;
+    border-radius: 8px;
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    transition: 0.2s;
+}
+
+.menu-item:hover {
+    background: #0d382a;
+}
+
+.active {
+    background: #0b2f21;
+    border-left: 4px solid #96d897;
+}
+
+.logout {
+    margin-top: 40px;
+    background: #9e2d2d;
+}
+
+.logout:hover {
+    background: #7a1e1e;
+}
+
+.content {
+    margin-left: 260px;
+    padding: 40px 60px;
+    width: calc(100% - 260px);
+}
+
+.content h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.dashboard-boxes {
+    margin-top: 30px;
+    display: flex;
+    gap: 30px;
+    justify-content: space-between;   
+    width: 100%;  
+}
+
+.box {
+    flex: 1;                          
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    text-align: center;
+    border-left: 6px solid #32b768;
+}
+
+.box h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.box p {
+    font-size: 24px;
+    font-weight: 700;
+    color: #124131;
+}
+/* ===== Dashboard panels (like the sample image) ===== */
+
+.dash-panels{
+    margin-top: 22px;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 18px;
+  }
+  
+  .dash-panel{
+    background: #ffffff;
+    border: 1px solid #eef2f6;
+    border-radius: 16px;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+    padding: 16px 16px 14px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+
+  
+  .panel-head{
+    padding-left: 10px;
+  }
+  
+  .panel-head h3{
+    margin:0;
+    font-size:18px;
+    font-weight:800;
+    color:#0f172a;
+  }
+  
+  .panel-head p{
+    margin:6px 0 0;
+    font-size:12.5px;
+    color:#64748b;
+  }
+  
+  .panel-canvas{
+    margin-top: 14px;
+    height: 290px;
+    padding-left: 10px;
+  }
+  
+  /* Status Breakdown grid */
+  .status-grid{
+    margin-top: 14px;
+    padding-left: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  
+  .status-box{
+    border-radius: 14px;
+    padding: 16px 14px;
+    border: 1px solid #e5e7eb;
+    background: #f8fafc;
+    text-align: center;
+  }
+  
+  .status-icon{
+    font-size: 22px;
+    margin-bottom: 8px;
+  }
+  
+  .status-num{
+    font-size: 28px;
+    font-weight: 900;
+    color: #0f172a;
+    line-height: 1;
+  }
+  
+  .status-label{
+    margin-top: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #64748b;
+  }
+  
+  .s-completed{ border-color: rgba(46,158,91,0.35); }
+  .s-pending{ border-color: rgba(245,158,11,0.35); }
+  .s-cancelled{ border-color: rgba(239,68,68,0.35); }
+  .s-declined{ border-color: rgba(168,85,247,0.30); }
+  
+  @media (max-width: 1000px){
+    .dash-panels{
+      grid-template-columns: 1fr;
+    }
+    .panel-canvas{
+      height: 260px;
+    }
+  }
+  

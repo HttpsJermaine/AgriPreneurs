@@ -1,0 +1,160 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: #ffffff;
+    color: #1a1a1a;
+}
+.sidebar {
+    width: 260px;
+    background: #124131;
+    color: white;
+    height: 100vh;
+    padding: 25px 20px;
+    position: fixed;
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 26px;
+    font-weight: 600;
+}
+
+.farmer-info {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 3px solid #96d897;
+}
+
+.farmer-name {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.menu-item {
+    padding: 12px 15px;
+    background: transparent;
+    border-radius: 8px;
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    transition: 0.2s;
+}
+
+.menu-item:hover {
+    background: #0d382a;
+}
+
+.active {
+    background: #0b2f21;
+    border-left: 4px solid #96d897;
+}
+
+.logout {
+    margin-top: 40px;
+    background: #9e2d2d;
+}
+
+.logout:hover {
+    background: #7a1e1e;
+}
+
+/* Content */
+.logs-container {
+    padding: 30px 50px;
+    margin-left: 260px;
+}
+
+.page-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: #124131;
+    margin-bottom: 5px;
+}
+
+.page-subtitle {
+    color: #567;
+    margin-bottom: 20px;
+}
+
+/* Filters */
+.logs-filters {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.logs-filters select,
+.logs-filters input[type="date"] {
+    padding: 10px 14px;
+    border: 1px solid #dfe9df;
+    border-radius: 8px;
+    outline: none;
+    background: #fff;
+    font-size: 14px;
+}
+
+/* Logs Table */
+.logs-table table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+}
+
+.logs-table th {
+    background: #e9f5ee;
+    padding: 15px;
+    text-align: left;
+    font-size: 15px;
+    color: #124131;
+}
+
+.logs-table td {
+    padding: 15px;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 14px;
+}
+
+.logs-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Log Icons */
+.log-icon {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+}
+
+.log-icon span {
+    font-size: 18px;
+}
+.logouts{
+    color: red;
+}
+.logins{
+    color: green;
+}
+

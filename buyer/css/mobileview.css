@@ -1,0 +1,314 @@
+/* buyer/css/mobile.css */
+/* Mobile-only overrides. Safe for desktop because media queries only. */
+
+@media (max-width: 900px) {
+  /* Common padding reduction so pages don't feel cramped */
+  .products-container,
+  .profile-container,
+  .checkout-container {
+    padding: 24px 18px !important;
+  }
+}
+
+/* ===========================
+   PRODUCTS (products.php)
+   Fix: sidebar + grid should stack on mobile
+   =========================== */
+@media (max-width: 768px) {
+  body { overflow-x: hidden; }
+
+  .products-container {
+    flex-direction: column;
+    gap: 16px;
+    padding: 18px 14px !important;
+  }
+
+  .filter-sidebar {
+    width: 100% !important;
+    flex-shrink: 1;
+  }
+
+  .products-section {
+    padding-right: 0 !important;
+  }
+
+  /* Your grid already becomes 1 column at 650px, keep that,
+     but make sure cards/buttons don't overflow */
+  .action-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .cart-btn,
+  .buy-btn,
+  .view-btn {
+    width: 100%;
+  }
+
+  .product-card img {
+    height: 160px; /* a bit taller on mobile for nicer look */
+  }
+}
+
+/* Keep your existing 650px grid rule working smoothly */
+@media (max-width: 650px) {
+  .products-container {
+    padding: 14px 12px !important;
+  }
+}
+
+
+/* ===========================
+   PROFILE (profile.php)
+   Fix: sidebar becomes top, profile-page grid stacks
+   =========================== */
+@media (max-width: 900px) {
+  .profile-container {
+    padding: 24px 18px !important;
+  }
+
+  .profile-page {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .profile-container {
+    flex-direction: column;
+    gap: 14px;
+    padding: 18px 14px !important;
+  }
+
+  .profile-sidebar {
+    width: 100% !important;
+  }
+
+  /* Sidebar menu becomes horizontal tabs */
+  .sidebar-menu {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding-bottom: 6px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .sidebar-menu li {
+    margin-bottom: 0 !important;
+    flex: 0 0 auto;
+  }
+
+  .sidebar-menu a {
+    white-space: nowrap;
+  }
+
+  /* Make the "Personal Information" grid stack */
+  .info-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Address buttons wrap */
+  .address-actions-bar {
+    flex-wrap: wrap;
+  }
+
+  /* Modal should fit phone width */
+  .logout-modal {
+    width: min(360px, 92vw) !important;
+  }
+}
+
+
+/* ===========================
+   CHECKOUT (checkout.php)
+   Fix: two columns -> single column, calendar popup not off-screen
+   =========================== */
+@media (max-width: 900px) {
+  .checkout-container {
+    padding: 24px 18px !important;
+  }
+
+  .checkout-layout {
+    flex-direction: column;
+  }
+
+  .checkout-right {
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .checkout-container {
+    padding: 18px 14px !important;
+  }
+
+  .checkout-title {
+    font-size: 26px;
+  }
+
+  .vendor-name {
+    font-size: 18px;
+  }
+
+  .checkout-layout {
+    gap: 14px;
+  }
+
+  /* Cart review item: allow wrapping instead of squeezing */
+  .cart-review-item {
+    align-items: flex-start;
+  }
+
+  .cart-review-item img {
+    width: 70px;
+    height: 70px;
+  }
+
+  /* Calendar popup: center on mobile so it never goes off-screen */
+  .calendar-popup {
+    position: fixed !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    z-index: 9999;
+    width: min(320px, 92vw);
+  }
+
+  #calendarInput {
+    width: 100%;
+  }
+}
+
+/* BUYER DASHBOARD */
+   @media (max-width: 768px) {
+
+    .hero {
+      height: auto !important;
+      min-height: 320px;
+      padding: 22px 14px !important;
+      justify-content: center;
+      background-position: center;
+    }
+  
+    .hero h2 {
+      font-size: 28px !important;
+      max-width: 100%;
+    }
+  
+    .hero-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 18px;
+    }
+  
+    .hero-buttons a {
+      width: 100%;
+    }
+  
+    .hero-buttons button {
+      width: 100%;
+      margin-right: 0 !important;
+    }
+  
+    .products-section {
+      padding: 18px 14px !important;
+    }
+  
+    .product-grid {
+      grid-template-columns: 1fr !important;
+      gap: 14px !important;
+    }
+  
+    .about {
+      padding: 30px 14px !important;
+    }
+  
+    .about h2 {
+      margin-left: 0 !important;
+      font-size: 24px !important;
+      margin-bottom: 20px !important;
+    }
+  
+    .about-container {
+      justify-content: center !important;
+      gap: 20px !important;
+    }
+  
+    .about-info {
+      width: 100% !important;
+      max-width: 320px;
+    }
+  
+    .about-info img {
+      width: 140px !important;
+    }
+  }
+
+/* ORDERS LIST */
+   @media (max-width: 768px) {
+
+    .profile-container {
+      flex-direction: column !important;
+      gap: 14px !important;
+      padding: 18px 14px !important;
+    }
+  
+    .profile-sidebar {
+      width: 100% !important;
+    }
+  
+    .sidebar-menu {
+      display: flex !important;
+      gap: 10px !important;
+      overflow-x: auto !important;
+      padding-bottom: 8px !important;
+      -webkit-overflow-scrolling: touch;
+    }
+  
+    .sidebar-menu li {
+      margin-bottom: 0 !important;
+      flex: 0 0 auto;
+    }
+  
+    .sidebar-menu a {
+      white-space: nowrap;
+    }
+  
+    .orders-tabs {
+      gap: 16px !important;
+      overflow-x: auto !important;
+      white-space: nowrap;
+      padding: 12px 12px !important;
+      border-radius: 10px;
+      -webkit-overflow-scrolling: touch;
+    }
+  
+    .orders-tabs a {
+      flex: 0 0 auto;
+      white-space: nowrap;
+    }
+  
+    .orders-box {
+      padding: 14px !important;
+    }
+  
+    .order-foot {
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      gap: 10px !important;
+    }
+  
+    .actions {
+      width: 100%;
+    }
+  
+    .btn {
+      width: 100%;
+    }
+  
+    .logout-modal {
+      width: min(360px, 92vw) !important;
+    }
+  }
+  
+  

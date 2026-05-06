@@ -1,0 +1,284 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Poppins", sans-serif;
+    background-color: #f6faf7;
+    color: #1a1a1a;
+  }
+  
+  .cart-container {
+    padding: 40px 80px;
+  }
+  
+  .cart-title {
+    font-size: 34px;
+    margin-bottom: 25px;
+    color: #0f3a2b;
+  }
+  
+  /* Layout */
+  .cart-layout {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+  }
+  
+  /* Product List Panel */
+  .cart-items {
+    flex: 1;
+  }
+  
+  .vendor-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #124131;
+  }
+  
+  /* Select All row */
+  .select-all-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0 14px;
+    color: #124131;
+    font-weight: 500;
+  }
+  
+  .select-all-row input {
+    width: 18px;
+    height: 18px;
+    accent-color: #2ecc71;
+    cursor: pointer;
+  }
+  
+  /* Cart Card (better layout) */
+  .cart-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+  
+    background: #fff;
+    padding: 18px 20px;
+    border-radius: 16px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+  
+    margin-bottom: 18px; /* gap between cards */
+  }
+  
+  /* LEFT: product */
+  .product-info {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    flex: 1;              /* takes free space */
+    min-width: 320px;
+  }
+  
+  .product-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .product-img {
+    width: 90px;
+    height: 90px;
+    border-radius: 12px;
+    object-fit: cover;
+  }
+  
+  .product-name {
+    font-size: 18px;
+    color: #124131;
+  }
+  
+  .sku,
+  .details {
+    font-size: 13px;
+    color: #666;
+  }
+  
+  /* MIDDLE: qty */
+  .cart-middle {
+    width: 180px;
+  }
+  
+  .qty-label {
+    display: block;
+    font-size: 13px;
+    color: #333;
+    margin-bottom: 6px;
+  }
+  
+  .qty-row {
+    display: flex;
+    align-items: center;
+  }
+  
+  .qty-form {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  
+  .qty-input {
+    width: 72px;
+    padding: 8px 10px;
+    border-radius: 10px;
+    border: 1px solid #d7d7d7;
+  }
+  
+  /* RIGHT: price + actions + checkbox */
+  .cart-right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  
+  .cart-price {
+    min-width: 160px;
+    text-align: right;
+  }
+  
+  .price-main {
+    font-size: 18px;
+    font-weight: 700;
+    color: #124131;
+  }
+  
+  .price-sub {
+    font-size: 12px;
+    color: #777;
+  }
+  
+  .cart-actions form {
+    margin: 0;
+  }
+  
+  .delete-btn{
+    background: #fff;
+    border: 1px solid #e3e3e3;
+    padding: 10px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    
+  }
+  
+  .delete-btn:hover,
+  .update-btn:hover {
+    background: #f3f3f3;
+  }
+  
+  /* checkbox far right */
+  .cart-check {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 26px;
+  }
+  
+  .item-check {
+    width: 18px;
+    height: 18px;
+    accent-color: #2ecc71;
+    cursor: pointer;
+  }
+  
+  /* Buttons Section */
+  .cart-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .back-btn {
+    background: #fff;
+    padding: 10px 18px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    text-decoration: none;
+    color: #124131;
+  }
+  
+  .checkout-btn {
+    background: #2ecc71;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    border: none; /* if you're using <button> */
+    cursor: pointer;
+  }
+  
+  .checkout-btn:hover {
+    background: #26b863;
+  }
+  
+  /* Summary Box */
+  .cart-summary {
+    width: 290px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 14px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.09);
+  }
+  
+  .summary-price {
+    font-size: 28px;
+    color: #124131;
+    font-weight: 700;
+  }
+  
+  .summary-message {
+    background: #cff4d2;
+    padding: 18px;
+    border-radius: 10px;
+    margin-top: 15px;
+    color: #124131;
+    font-size: 15px;
+  }
+  
+  /* Responsive (optional but helps a lot) */
+  @media (max-width: 1000px) {
+    .cart-container {
+      padding: 28px 18px;
+    }
+  
+    .cart-layout {
+      flex-direction: column;
+    }
+  
+    .cart-summary {
+      width: 100%;
+    }
+  
+    .cart-card {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 14px;
+    }
+  
+    .product-info {
+      min-width: auto;
+    }
+  
+    .cart-middle,
+    .cart-price {
+      width: 100%;
+    }
+  
+    .cart-right {
+      justify-content: space-between;
+    }
+  
+    .cart-price {
+      text-align: left;
+      min-width: auto;
+    }
+  }
